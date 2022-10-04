@@ -78,6 +78,15 @@ run_integration()
 	/var/www/html/magento2/vendor/bin/phpunit -c adc_phpunit_integration.xml.ci
 }
 
+run_phpcbf()
+{
+	echo "##############################################################################################"
+	echo "                              RUNNING PHPCBF                                                  "
+	echo "##############################################################################################"
+	cd "$ROOT_PATH"
+	vendor/bin/phpcbf --standard=Magento2 extensions
+}
+
 run_all()
 {
 	run_phpcs
@@ -107,7 +116,10 @@ case $TEST in
 	'integration')
 	run_integration
 	;;
-
+	'phpcbf')
+	run_phpcbf
+	;;
+	
   	*)
 	run_all
 	;;
