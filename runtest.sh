@@ -31,7 +31,12 @@ run_graphql()
 	echo "##############################################################################################"
 	cd "$ROOT_PATH"
 	cd dev/tests/integration
-	/var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_graphql.xml
+	if [ -z "$FILTER_VALUE" ]
+	  then
+	    /var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_graphql.xml
+	else
+	    /var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_graphql.xml --filter "$FILTER_VALUE"
+	fi
 }
 
 run_unit()
