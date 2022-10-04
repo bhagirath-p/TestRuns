@@ -4,7 +4,11 @@ A script to auto run the tests from a single file by passing the commands as arg
 ## Usage
 > **./runtest.sh \<test type\> \<optional filter\>**
 
-| Syntax | Description |
-| ----------- | ----------- |
-| Header | Title |
-| Paragraph | Text |
+| List of Test Types |
+| ----------- |
+| unit |
+| rest |
+| graphql|
+| integration |
+| phpmd |
+| phpcs |
