@@ -14,4 +14,4 @@ A script to auto run the tests from a single file by passing the commands as arg
 | phpcs |
 | phpcbf |
 
-### NOTE : Edit ine 6 to update the document root as per your environment.
+### NOTE : Edit line no. 6 to update the document root as per your environment.
