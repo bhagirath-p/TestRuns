@@ -35,7 +35,7 @@ run_graphql()
 	  then
 	    /var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_graphql.xml
 	else
-	    /var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_graphql.xml --filter "$FILTER_VALUE"
+	    /var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_graphql.xml "$FILTER_VALUE"
 	fi
 }
 
@@ -64,7 +64,7 @@ run_rest()
 	  then
 	    /var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_rest.xml
 	else
-	    /var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_rest.xml --filter "$FILTER_VALUE"
+	    /var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_rest.xml "$FILTER_VALUE"
 	fi
 }
 
