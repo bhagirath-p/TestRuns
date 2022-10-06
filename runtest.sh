@@ -119,8 +119,13 @@ case $TEST in
 	'phpcbf')
 	run_phpcbf
 	;;
-	
+
   	*)
-	run_all
+  	    if [ -z "$TEST" ]
+  	        then
+  	            run_all
+  	    else
+  	        echo "Invalid test name"
+  	    fi
 	;;
 esac
