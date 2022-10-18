@@ -1,7 +1,8 @@
 #!/bin/bash
 
 TEST=$1
-FILTER_VALUE=$2
+SECOND_ARG=$2
+COMMAND_LINE_ARGS=${@:2}
 
 ROOT_PATH="/var/www/html/magento2/"
 
@@ -31,11 +32,11 @@ run_graphql()
 	echo "##############################################################################################"
 	cd "$ROOT_PATH"
 	cd dev/tests/integration
-	if [ -z "$FILTER_VALUE" ]
+	if [ -z "$SECOND_ARG" ]
 	  then
 	    /var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_graphql.xml
 	else
-	    /var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_graphql.xml "$FILTER_VALUE"
+        /var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_graphql.xml $COMMAND_LINE_ARGS
 	fi
 }
 
@@ -45,11 +46,11 @@ run_unit()
 	echo "                                 RUNNING UNIT TESTS                                           "
 	echo "##############################################################################################"
 	cd "$ROOT_PATH"
-	if [ -z "$FILTER_VALUE" ]
+	if [ -z "$SECOND_ARG" ]
 	  then
 	    vendor/bin/phpunit -c dev/tests/unit/adc_phpunit.xml.ci
 	else
-	    vendor/bin/phpunit -c dev/tests/unit/adc_phpunit.xml.ci --filter "$FILTER_VALUE"
+	    vendor/bin/phpunit -c dev/tests/unit/adc_phpunit.xml.ci $COMMAND_LINE_ARGS
 	fi
 }
 
@@ -60,11 +61,11 @@ run_rest()
 	echo "##############################################################################################"
 	cd "$ROOT_PATH"
 	cd dev/tests/integration
-	if [ -z "$FILTER_VALUE" ]
+	if [ -z "$SECOND_ARG" ]
 	  then
 	    /var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_rest.xml
 	else
-	    /var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_rest.xml "$FILTER_VALUE"
+	    /var/www/html/magento2/vendor/bin/phpunit -c ../api-functional/adc_phpunit_rest.xml $COMMAND_LINE_ARGS
 	fi
 }
 
